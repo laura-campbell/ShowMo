@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  show: one
+  rating: 1.5
+  checkin: false
+
+two:
+  user: two
+  show: two
+  rating: 1.5
+  checkin: false
