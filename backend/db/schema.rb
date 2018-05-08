@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20180507180012) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
+    t.integer "api_artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180507180012) do
     t.bigint "artist_id"
     t.bigint "venue_id"
     t.datetime "showtime"
+    t.integer "api_show_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_shows_on_artist_id"
@@ -68,8 +70,16 @@ ActiveRecord::Schema.define(version: 20180507180012) do
   end
 
   create_table "venues", force: :cascade do |t|
+    t.integer "api_venue_id"
     t.string "name"
-    t.string "location"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "state_code"
+    t.integer "zip"
+    t.string "url"
+    t.decimal "lat"
+    t.decimal "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
