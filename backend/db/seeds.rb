@@ -12,8 +12,9 @@ require 'pry'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #API INFORMATION
+keys = ['yc3qwjt2jcam6kzh43euey6n', 'ecsry33dby9axu6b74zk2p2u']
 
-key = 'yc3qwjt2jcam6kzh43euey6n'
+key = keys.sample
 url = "http://api.jambase.com/events?zipCode=11238&radius=10&startDate=2018-05-08T00%3A00%3A00&endDate=2018-05-10T00%3A00%3A00&page=0&api_key=#{key}&o=json"
 uri = URI(url)
 response = Net::HTTP.get(uri)
