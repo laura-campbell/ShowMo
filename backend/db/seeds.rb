@@ -2,6 +2,7 @@ require 'faker'
 require 'net/http'
 require 'json'
 require 'pry'
+require 'yaml'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -12,7 +13,9 @@ require 'pry'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #API INFORMATION
-keys = ['yc3qwjt2jcam6kzh43euey6n', 'ecsry33dby9axu6b74zk2p2u']
+#keys = ['yc3qwjt2jcam6kzh43euey6n', 'ecsry33dby9axu6b74zk2p2u']
+
+keys = YAML.load_file('keys.yml')
 key = keys.sample
 url = "http://api.jambase.com/events?zipCode=11238&radius=10&startDate=2018-05-08T00%3A00%3A00&endDate=2018-05-10T00%3A00%3A00&page=0&api_key=#{key}&o=json"
 uri = URI(url)
