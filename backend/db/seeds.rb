@@ -199,10 +199,10 @@ else
 end #ending the if statement for pages
 
 
-# # USERS
-# 50.times do
-#   user = User.create(name: Faker::Name.unique.name, phone: 10.times.map{rand(10)}.join, email: Faker::Internet.unique.email)
-# end
+# USERS
+50.times do
+  user = User.create(name: Faker::Name.unique.name, phone: 10.times.map{rand(10)}.join, email: Faker::Internet.unique.email)
+end
 #
 # # ARTISTS
 # 50.times do
@@ -218,16 +218,16 @@ end #ending the if statement for pages
 # 50.times do
 #   show = Show.create(artist: Artist.all.sample, venue: Venue.all.sample, showtime: Faker::Date.forward(90))
 # end
-#
-# # FAN
-# 50.times do
-#   fan = Fan.create(user: User.all.sample, artist: Artist.all.sample)
-# end
-#
-# # Attends
-# 50.times do
-#   attends = Attend.create(user: User.all.sample, show: Show.all.sample, rating: Random.rand(1..10), checkin: Faker::Boolean.boolean)
-# end
+
+# FAN
+50.times do
+  fan = Fan.create(user: User.all.sample, artist: Artist.all.sample)
+end
+
+#Attends
+50.times do
+  attends = Attend.create(user: User.all.sample, show: Show.all.sample, rating: Random.rand(1..10), checkin: Faker::Boolean.boolean)
+end
 #
 # # setlists
 # 50.times do
