@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/music-festival-poster.png" height=65px></p><b>Date: </b>${show["date"].split('-')[1]}-${show["date"].split('-')[2]}-${show["date"].split('-')[0]}<br><b>Time: </b> ${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM <br><b>Setlist:</b><p>Insert Setlist Here</p></div>
         </div>`
         showsList.append(showLi)
+        let thisMap = document.getElementById('map')
+        showLi.addEventListener('click', function(e) {
+          console.log('hi')
+          L.popup().setLatLng([show["venue"]["lat"], show["venue"]["long"]]).setContent(`<center><b>${show["artist"]["name"]}</b><br>${show["venue"]["name"]}<br>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</center>`).openOn(map);
+        });
         locations.push([show["artist"]["name"], show["venue"]["name"], show["venue"]["lat"], show["venue"]["long"], show["date"].split('-')[1] + `/` + show["date"].split('-')[2] + `/` + show["date"].split('-')[0]])
       })
 
@@ -39,32 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       locations.forEach(location => {
         var marker = L.marker([location[2], location[3]]).bindPopup(`<center> <b>${location[0]}</b><br>${location[1]}<br>${location[4]}</center>`).openPopup().addTo(map);
-        marker.addEventListener("click", function (e){
+        marker.addEventListener("click", function (){
           map.setView([location[2], location[3]], 13);
-        });
-        let headers = document.querySelectorAll('.collapsible-header')
-        headers.forEach(header => {
-          header.addEventListener('click', function() {
-            console.log(header.innerHTML)
-            // let popup =
-            // L.bindPopup(header).openPopup();
+        })})
 
-
-        //   let Artists = document.querySelectorAll('h6')
-        //   Artists.forEach(artist => {
-        //     if artist.innerText ===
-        //   })
-        //   console.log(currentArtist)
-        //   marker.openPopup()
-        //
-      })
-      })
-      })
+      }) // end of fetch
 
 
 
 
-  }) // end of fetch
-
-
-}) // end of dom content loaded
+  })  // end of dom content loaded
