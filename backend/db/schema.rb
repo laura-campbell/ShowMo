@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20180507180012) do
     t.string "street"
     t.string "city"
     t.integer "city_id"
-    t.string "state"
     t.string "state_code"
     t.integer "zip"
     t.text "website"
