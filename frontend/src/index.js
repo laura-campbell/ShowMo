@@ -1,9 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  let contentContainer = document.getElementById('content')
 
+  // for the nav
+  let signInButton = document.getElementById('sign-in-button')
+  signInButton.addEventListener('click', () => {
+    Page.login(contentContainer)
+  })
+
+  // for the sidebar nav
+  let signInSidebar = document.getElementById('sign-in-sidebar')
+  signInSidebar.addEventListener('click', () => {
+    Page.login(contentContainer)
+  })
 
   let showsList = document.getElementById('shows')
-
   fetch('http://localhost:3000/api/v1/shows')
     .then(response => response.json())
     .then(shows => {
