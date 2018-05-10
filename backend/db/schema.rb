@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180507180012) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.integer "songkick_id"
-    t.text "songkick_url"
+    t.string "songkick_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

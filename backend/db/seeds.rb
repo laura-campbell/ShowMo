@@ -45,6 +45,7 @@ totalEntries = r["resultsPage"]["totalEntries"].to_f
 pages = (totalEntries / perPage).ceil
 page = r["resultsPage"]["page"]
 
+
 if pages > 1
   while page < pages
     r["resultsPage"]["results"]["event"].each do |event|
@@ -55,8 +56,8 @@ if pages > 1
         event["performance"].each do |set|
           ab = Artist.find_or_create_by(
             name: set["displayName"],
-            songkick_url: set["uri"],
-            songkick_id: set["id"]
+            songkick_url: set["artist"]["uri"],
+            songkick_id: set["artist"]["id"]
           )
           event_artists << ab
           puts ab
@@ -64,8 +65,8 @@ if pages > 1
       else
         a = Artist.find_or_create_by(
           name: event["performance"][0]["displayName"],
-          songkick_url: event["performance"][0]["uri"],
-          songkick_id: event["performance"][0]["id"]
+          songkick_url: event["performance"][0]["artist"]["uri"],
+          songkick_id: event["performance"][0]["artist"]["id"]
         )
         event_artists << a
         puts a
@@ -85,26 +86,23 @@ if pages > 1
       #create the show
       if event_artists.length > 1
         event_artists.each do |artist|
-          event["start"]["datetime"]
           s = Show.find_or_create_by(
             artist: artist,
             venue: v,
             date: event["start"]["date"],
-            time: event["start"]["time"],
+            time: event["start"]["time"].to_s,
             #showtime: DateTime.parse(event["start"]["datetime"]),
             songkick_popularity: event["popularity"],
             songkick_id: event["id"],
             songkick_url: event["uri"]
           )
-          puts s
         end
       else
-        puts event["start"]["datetime"]
         s = Show.find_or_create_by(
           artist: a,
           venue: v,
           date: event["start"]["date"],
-          time: event["start"]["time"],
+          time: event["start"]["time"].to_s,
           #showtime: DateTime.parse(event["start"]["datetime"]),
           songkick_popularity: event["popularity"],
           songkick_id: event["id"],
@@ -131,7 +129,6 @@ if pages > 1
 else
 
   r["resultsPage"]["results"]["event"].each do |event|
-
     #create the artist
     event_artists = []
     if event["performance"].length > 1
@@ -146,12 +143,12 @@ else
       end
     else
       a = Artist.find_or_create_by(
-        name: event["performance"][0]["displayName"],
-        songkick_url: event["performance"][0]["uri"],
-        songkick_id: event["performance"][0]["id"]
+        name: event["performance"]["artist"]["displayName"],
+        songkick_url: event["performance"][0]["artist"]["uri"],
+        songkick_id: event["performance"][0]["artist"]["id"]
       )
       event_artists << a
-      puts a
+      puts a.songkick_url
     end
 
     #create the venue
