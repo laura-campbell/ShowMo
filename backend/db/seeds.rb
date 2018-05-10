@@ -3,6 +3,9 @@ require 'net/http'
 require 'json'
 require 'pry'
 require 'yaml'
+require 'nokogiri'
+require 'open-uri'
+require 'open_uri_redirections'
 
 # connect to the API
 key = YAML.load_file('keys2.yml')
@@ -150,3 +153,23 @@ end
 # 50.times do
 #   setlist = Setlist.create(artist: Artist.all.sample, content: Faker::Lorem.paragraph(2))
 # end
+
+Venue.all.each do |venue|
+  if venue.songkick_url
+    doc = Nokogiri::HTML(open(venue.songkick_url, :allow_redirections => :safe))
+    image = doc.css('img.profile-picture')[0]['src'].split('//')[1]
+    venue.songkick_img = "http://#{image}"
+    venue.save
+    puts "Saved #{venue.name} with a new picture URL of #{venue.songkick_img}."
+    puts ""
+  end
+end
+
+Artist.all.each do |artist|
+  url = artist.songkick_id
+  image = "http://images.sk-static.com/images/media/profile_images/artists/#{artist.songkick_id}/huge_avatar"
+  artist.songkick_img = image
+  artist.save
+  puts "Saved #{artist.name} with a new picture URL of #{artist.songkick_img}."
+  puts ""
+end

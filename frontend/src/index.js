@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let showLi = document.createElement('li')
         showLi.innerHTML =
         `<div class="collapsible-header"><b>
-        <i class="material-icons">music_note</i>
-        <h6>${show["artist"]["name"]}</b>&nbspat&nbsp<b>${show["venue"]["name"]}</b></h6></div>`
+        <img src="${show["artist"]["songkick_img"]}" height="30" width="30" alt="" class="circle">
+        <h6>${show["artist"]["name"]}</b>&nbspat&nbsp<b>${show["venue"]["name"]}</b></h6><img src="http://${show["venue"]["songkick_img"]}" height="30" width="30" alt="" class="circle"></div>`
         showLi.innerHTML += `
         <div class="collapsible-body">
         <div class="row">
