@@ -23,22 +23,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
       shows.forEach(show => {
         let showLi = document.createElement('li')
+        showLi.setAttribute("class", "collection-item avatar")
         showLi.innerHTML =
-        `<div class="collapsible-header"><b>
-        <i class="material-icons">music_note</i>
-        <h6>${show["artist"]["name"]}</b>&nbspat&nbsp<b>${show["venue"]["name"]}</b></h6></div>`
-        showLi.innerHTML += `
-        <div class="collapsible-body">
-        <div class="row">
-        <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><p><br><img src="images/sportlights.png" height=65px></p><b>Venue:</b><p><a target="_blank" href= "${show["venue"]["songkick_url"]}">${show["venue"]["name"]}</a></p></div>
-        <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/microphone.png" height=65px></p><b>Artist:</b><p><a target="_blank" href= "${show["artist"]["songkick_url"]}">${show["artist"]["name"]}</a></p></div>
-        <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/music-festival-poster.png" height=65px></p><b>Date: </b>${show["date"].split('-')[1]}-${show["date"].split('-')[2]}-${show["date"].split('-')[0]}<br><b>Time: </b> ${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM <br><b>Setlist:</b><p>Insert Setlist Here</p></div>
-        </div>`
+          `<img src="images/drum-set.png" alt="" class="circle">
+          <span class="title">${show["artist"]["name"]}</span>
+          <p>${show["venue"]["name"]} <br>
+             ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}
+          </p>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Info</a>`
+
+
+// NEED TO PUT THIS OUTSIDE THE LOOP OR ANYTHING
+
+        // $(document).ready(function(){
+        //   $('.modal').modal();
+        //   });
+        //
+        //   let modalPop = document.querySelector('.modal')
+        //   let modalInfo = document.querySelector('.modal-content')
+        //   modalInfo.setAttribute("id", "modal1")
+        //   modalInfo.innerHTML =
+        //   `<h4>Modal Header</h4>
+        //       <p>${show["artist"]["name"]}</p>
+        //       <p>${show["venue"]["name"]}</p>
+        //       <p>Description: ${show["venue"]["description"]}</p>
+        //     </div>
+        //     <div class="modal-footer">
+        //       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>`
+        //   modalPop.append(modalInfo)
+
+        // `<div class="collapsible-header"><b>
+        // <i class="material-icons">music_note</i>
+        // <h6>${show["artist"]["name"]}</b>&nbspat&nbsp<b>${show["venue"]["name"]}</b></h6></div>`
+        // showLi.innerHTML += `
+        // <div class="collapsible-body">
+        // <div class="row">
+        // <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><p><br><img src="images/sportlights.png" height=65px></p><b>Venue:</b><p><a target="_blank" href= "${show["venue"]["songkick_url"]}">${show["venue"]["name"]}</a></p></div>
+        // <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/microphone.png" height=65px></p><b>Artist:</b><p><a target="_blank" href= "${show["artist"]["songkick_url"]}">${show["artist"]["name"]}</a></p></div>
+        // <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/music-festival-poster.png" height=65px></p><b>Date: </b>${show["date"].split('-')[1]}-${show["date"].split('-')[2]}-${show["date"].split('-')[0]}<br><b>Time: </b> ${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM <br><b>Setlist:</b><p>Insert Setlist Here</p></div>
+        // </div>`
+
         showsList.append(showLi)
         let thisMap = document.getElementById('map')
         showLi.addEventListener('click', function(e) {
-          console.log('hi')
           L.popup().setLatLng([show["venue"]["lat"], show["venue"]["long"]]).setContent(`<center><b>${show["artist"]["name"]}</b><br>${show["venue"]["name"]}<br>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</center>`).openOn(map);
+          map.setView([show["venue"]["lat"], show["venue"]["long"]], 13);
         });
         locations.push([show["artist"]["name"], show["venue"]["name"], show["venue"]["lat"], show["venue"]["long"], show["date"].split('-')[1] + `/` + show["date"].split('-')[2] + `/` + show["date"].split('-')[0]])
       })
@@ -60,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })})
 
       }) // end of fetch
-
 
 
 
