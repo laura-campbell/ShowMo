@@ -16,6 +16,7 @@
 
   <nav class="" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center"> <img src="images/owl.svg" class="owl tooltipped" data-position="left" data-tooltip="Hoot" alt=""> </a>
+
       <ul class="right hide-on-med-and-down">
         <li class="active"><a href="#" id="map-button"><i class="large material-icons">map</i></a></li>
         <li><a href="#" id="sign-in-button"><i class="large material-icons">account_circle</i></a></li>
@@ -25,29 +26,36 @@
         <li><a href="#">Map</a></li>
         <li><a href="#" id="sign-in-sidebar">Sign In</a></li>
       </ul>
+
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
     </div>
-  </nav>
-
-
-  <div id="content" class="">
-
-    <div class="section no-pad green-header">
+    <div class="green-header">
       <h5>Shows</h5> near
-      <!-- Dropdown Trigger -->
       <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>New York</a>
-
-      <!-- Dropdown Structure -->
       <ul id='dropdown1' class='dropdown-content'>
         <li><a href="#!">LA</a></li>
         <li><a href="#!">San Francisco</a></li>
         <li><a href="#!">Boston</a></li>
       </ul>
     </div>
+  </nav>
 
-    <div id="map" class=""></div>
-    <ul class="collapsible" id="shows"></ul>
 
+  <div id="content" class="">
+
+
+
+    <div class="row">
+
+      <div class="col s12 m6 l6">
+        <ul class="collapsible" id="shows"></ul>
+      </div>
+      <div class="mapContainer col s6 m6 l6">
+        <div id="map"></div>
+      </div>
+
+    </div>
   </div>
 
   <footer class="page-footer center">
