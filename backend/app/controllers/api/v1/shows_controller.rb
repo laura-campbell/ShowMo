@@ -1,7 +1,7 @@
 class Api::V1::ShowsController < ApplicationController
 
   def index
-    @shows = Show.all
+    @shows = Show.all.order('songkick_popularity DESC').limit(50)
     render json: @shows
   end
 
