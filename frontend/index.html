@@ -15,31 +15,43 @@
 <body>
 
   <nav class="" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center"> <img src="images/owl.svg" class="tooltipped" data-position="left" data-tooltip="Hoot" height="67px" width="68px" alt=""> </a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center"> <img src="images/owl.svg" class="owl tooltipped" data-position="left" data-tooltip="Hoot" alt=""> </a>
+
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Map</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li class="active"><a href="#" id="map-button"><i class="large material-icons">map</i></a></li>
+        <li><a href="#" id="sign-in-button"><i class="large material-icons">account_circle</i></a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Map</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li><a href="#" id="sign-in-sidebar">Sign In</a></li>
       </ul>
+
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+    </div>
+    <div class="green-header">
+      <h5>Shows</h5> near
+      <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>New York</a>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">LA</a></li>
+        <li><a href="#!">San Francisco</a></li>
+        <li><a href="#!">Boston</a></li>
+      </ul>
     </div>
   </nav>
 
+  <div id="content" class="">
+    <div class="row">
 
-  <div class="content">
+      <div class="col s12 m6 l6">
+        <ul class="collapsible" id="shows"></ul>
+      </div>
+      <div class="mapContainer col s6 m6 l6">
+        <div id="map"></div>
+      </div>
 
-    <div class="section no-pad green-header">
-      <h5>Shows</h5> near <h5>New York</h5>
     </div>
-
-    <div id="map"></div>
-
-    <ul class="collapsible" id="shows"></ul>
-
   </div>
 
   <footer class="page-footer center">
@@ -47,8 +59,9 @@
       <div class="row">
         <div class="col l12 s12">
           <h5 class="white-text">Give A Hoot</h5>
-          <p class="grey-text text-lighten-4">The Bad Azz Music Owl (BAMO) exists to help people find great concerts on the-night-of. We hope you enjoy the service. Big thanks to the various services we use to make BAMO happen, including: one, two, and three.</p>
+          <p class="grey-text text-lighten-4">The Bad Azz Music Owl (BAMO) helps people find great concerts. Big thanks to the various services we used to create BAMO, including: <a href="https://www.songkick.com/">Songkick</a> (API) and <a href="https://materializecss.com/">Materialize CSS</a>.</p>
         </div>
+        <img src="images/owl.svg" class="owl_footer" alt="">
       </div>
     </div>
     <div class="footer-copyright">
@@ -62,6 +75,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/page.js"></script>
   <script src="src/index.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
