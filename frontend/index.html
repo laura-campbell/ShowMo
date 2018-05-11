@@ -12,59 +12,57 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
 
 </head>
+
 <body>
 
-  <nav class="" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center"> <img src="images/owl.svg" class="owl tooltipped" data-position="left" data-tooltip="Hoot" alt=""> </a>
+  <nav role="navigation">
+    <div class="nav-wrapper">
 
+      <!-- Logo -->
+      <a id="logo-container" href="#" class="brand-logo center">
+        <img src="images/owl.svg" class="owl tooltipped" data-position="left" data-tooltip="Hoot" alt="">
+      </a>
+
+      <!-- Icons -->
       <ul class="right hide-on-med-and-down">
         <li class="active"><a href="#" id="map-button"><i class="large material-icons">map</i></a></li>
         <li><a href="#" id="sign-in-button"><i class="large material-icons">account_circle</i></a></li>
       </ul>
 
+      <!-- Sidebar -->
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Map</a></li>
         <li><a href="#" id="sign-in-sidebar">Sign In</a></li>
       </ul>
 
+      <!-- Sidebar Icon -->
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
     </div>
-    <div class="green-header">
-      <h5>Shows</h5> near
-      <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>New York</a>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">LA</a></li>
-        <li><a href="#!">San Francisco</a></li>
-        <li><a href="#!">Boston</a></li>
-      </ul>
-    </div>
   </nav>
 
-  <div id="content" class="">
+  <div class="section" style="background-color: #fff; margin:0; padding:0;">
     <div class="row">
 
-<!-- collapsible class -->
-      <!-- <div class="col s12 m6 l6">
-        <ul class="collapsible" id="shows"></ul>
-      </div> -->
-
-<!-- new collection class -->
-      <div class="col s12 m6 l6">
-      <ul class="collection" id="shows"></ul>
+      <!-- Shows List -->
+      <div class="col s12 m6">
+        <h5>Shows</h5>
+        <ul class="collection" id="shows"></ul>
       </div>
 
+      <!-- Modal -->
       <div id="modal1" class="modal">
         <div class="modal-content">
         </div>
       </div>
 
-      <div class="mapContainer col s6 m6 l6">
+      <!-- Mal -->
+      <div class="col s12 m6 sticky mapContainer">
         <div id="map"></div>
       </div>
-
     </div>
   </div>
+  <br>
 
   <footer class="page-footer center">
     <div class="container">
@@ -93,45 +91,3 @@
 
   </body>
 </html>
-
-
-
-
-
-
-<!-- <ul class="collection">
-
-    <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-
-    <li class="collection-item avatar">
-      <i class="material-icons circle">folder</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle green">insert_chart</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle red">play_arrow</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-  </ul> -->
