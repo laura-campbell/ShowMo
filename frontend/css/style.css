@@ -156,3 +156,10 @@ div.sticky {
   filter: grayscale(100%);
   opacity: .10;
 }
+
+li.collection-item.avatar > .something {
+  visibility: hidden;
+}
+li.collection-item.avatar:hover > .something {
+  visibility: visible;
+}

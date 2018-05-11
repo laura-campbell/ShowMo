@@ -24,19 +24,19 @@
       </a>
 
       <!-- Icons -->
-      <ul class="right hide-on-med-and-down">
+      <!-- <ul class="right hide-on-med-and-down">
         <li class="active"><a href="#" id="map-button"><i class="large material-icons">map</i></a></li>
         <li><a href="#" id="sign-in-button"><i class="large material-icons">account_circle</i></a></li>
-      </ul>
+      </ul> -->
 
       <!-- Sidebar -->
-      <ul id="nav-mobile" class="sidenav">
+      <!-- <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Map</a></li>
         <li><a href="#" id="sign-in-sidebar">Sign In</a></li>
-      </ul>
+      </ul> -->
 
       <!-- Sidebar Icon -->
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <!-- <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
 
     </div>
   </nav>
@@ -46,7 +46,16 @@
 
       <!-- Shows List -->
       <div class="col s12 m6">
-        <h5>Shows</h5>
+        <!-- Section Header -->
+        <div>
+          <h5 style="display:inline-block">Shows in </h5>
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1' style="position: relative; bottom: 5px; left:5px; margin-right: 10px;">New York City</a>
+          <h5 style="display:inline-block">this week</h5>
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">More Cities Coming Soon...</a></li>
+          </ul>
+        </div>
+        <!-- Collection of Events -->
         <ul class="collection" id="shows"></ul>
       </div>
 

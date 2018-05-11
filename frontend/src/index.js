@@ -3,16 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let contentContainer = document.getElementById('content')
 
   // for the nav
-  let signInButton = document.getElementById('sign-in-button')
-  signInButton.addEventListener('click', () => {
-    Page.login(contentContainer)
-  })
+  // let signInButton = document.getElementById('sign-in-button')
+  // signInButton.addEventListener('click', () => {
+  //   Page.login(contentContainer)
+  // })
 
   // for the sidebar nav
-  let signInSidebar = document.getElementById('sign-in-sidebar')
-  signInSidebar.addEventListener('click', () => {
-    Page.login(contentContainer)
-  })
+  // let signInSidebar = document.getElementById('sign-in-sidebar')
+  // signInSidebar.addEventListener('click', () => {
+  //   Page.login(contentContainer)
+  // })
 
   let showsList = document.getElementById('shows')
   fetch('http://localhost:3000/api/v1/shows')
@@ -37,12 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
 //         <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/music-festival-poster.png" height=65px></p><b>Date: </b>${show["date"].split('-')[1]}-${show["date"].split('-')[2]}-${show["date"].split('-')[0]}<br><b>Time: </b> ${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM <br><b>Setlist:</b><p>Insert Setlist Here</p></div>
 //         </div>`
 
-          `<img src="images/drum-set.png" alt="" class="circle">
-          <span class="title">${show["artist"]["name"]}</span>
-          <p>${show["venue"]["name"]} <br>
-             ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}
-          </p>
-          <button id="modal-button" data-target="modal1" class="btn modal-trigger">Event Details</button>`
+          `
+          <img src="${show.artist.songkick_img}" alt="" class="circle" style="top:19px;">
+          <div style="position: relative; top:8px; ">
+          <span class="title" style="font-size:18px; line-height:18px;"><strong>${show["artist"]["name"]}</strong></span><br>
+          <span>at ${show["venue"]["name"]} on ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</span>
+          </div>
+          <button id="modal-button" data-target="modal1" class="btn modal-trigger right something" style="position:relative; bottom:30px;">Details</button>`
 
         // let modalButton = document.getElementById('modal-button')
         //
