@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         //
         // modalButton.addEventListener('click', function () {
 
-          console.log('help')
 
         // let modalContent = document.getElementById('modal1')
         // modalContent.innerHTML =
@@ -89,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       <p align="center"><strong>Phone #: </strong>${show["venue"]["phone"]}
                       <br><br><strong>Address: </strong><br>${show["venue"]["street"]}<br> ${show["venue"]["city"]}, ${show["venue"]["state_code"]} ${show["venue"]["zip"]}</p>
                       <p align="center"><strong>Capacity: </strong>${show["venue"]["capacity"].toLocaleString()} people</p>
-                      <p align="center"><img src=${show["venue"]["songkick_img"]}></p>
+                      <p align="center"><img src="http://${show["venue"]["songkick_img"]}"></p>
                       <p align="center"></strong>${show["venue"]["description"]}</p>
                       <br>
                     </div>
