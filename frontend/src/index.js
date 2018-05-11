@@ -3,16 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let contentContainer = document.getElementById('content')
 
   // for the nav
-  let signInButton = document.getElementById('sign-in-button')
-  signInButton.addEventListener('click', () => {
-    Page.login(contentContainer)
-  })
+  // let signInButton = document.getElementById('sign-in-button')
+  // signInButton.addEventListener('click', () => {
+  //   Page.login(contentContainer)
+  // })
 
   // for the sidebar nav
-  let signInSidebar = document.getElementById('sign-in-sidebar')
-  signInSidebar.addEventListener('click', () => {
-    Page.login(contentContainer)
-  })
+  // let signInSidebar = document.getElementById('sign-in-sidebar')
+  // signInSidebar.addEventListener('click', () => {
+  //   Page.login(contentContainer)
+  // })
 
   let showsList = document.getElementById('shows')
   fetch('http://localhost:3000/api/v1/shows')
@@ -37,18 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
 //         <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/music-festival-poster.png" height=65px></p><b>Date: </b>${show["date"].split('-')[1]}-${show["date"].split('-')[2]}-${show["date"].split('-')[0]}<br><b>Time: </b> ${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM <br><b>Setlist:</b><p>Insert Setlist Here</p></div>
 //         </div>`
 
-          `<img src="images/drum-set.png" alt="" class="circle">
-          <span class="title">${show["artist"]["name"]}</span>
-          <p>${show["venue"]["name"]} <br>
-             ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}
-          </p>
-          <button id="modal-button" data-target="modal1" class="btn modal-trigger">Event Details</button>`
+          `
+          <img src="${show.artist.songkick_img}" alt="" class="circle" style="top:19px;">
+          <div style="position: relative; top:8px; ">
+          <span class="title" style="font-size:18px; line-height:18px;"><strong>${show["artist"]["name"]}</strong></span><br>
+          <span>${show["venue"]["name"]} &middot; ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</span>
+          </div>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          <button id="modal-button" data-target="modal1" class="btn modal-trigger right something" style="position:relative; bottom:30px; right:40px;">Details</button>`
 
         // let modalButton = document.getElementById('modal-button')
         //
         // modalButton.addEventListener('click', function () {
 
-          console.log('help')
 
         // let modalContent = document.getElementById('modal1')
         // modalContent.innerHTML =
@@ -76,9 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
           L.popup().setLatLng([show["venue"]["lat"], show["venue"]["long"]]).setContent(`<center><b>${show["artist"]["name"]}</b><br>${show["venue"]["name"]}<br>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</center>`).openOn(map);
           map.setView([show["venue"]["lat"], show["venue"]["long"]], 13);
           let modalContent = document.querySelector('.modal-content')
-          modalContent.innerHTML = `<h4>${show["artist"]["name"]}</h4>
-                      <p>${show["venue"]["name"]}</p>
-                      <p>Description: ${show["venue"]["description"]}</p>
+          modalContent.innerHTML = `<h4 class="blue-grey-text text-darken-2" align="center"><strong>${show["artist"]["name"]}</strong></h4>
+                      <p align="center" class="flow-text"><img src=${show["artist"]["songkick_img"]}></p>
+                      <h5 align="center"><strong><i class="material-icons">event</i></strong>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}
+                      &nbsp;&nbsp;&nbsp;&nbsp;<strong><i class="material-icons">access_time</i></strong>${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM
+                      <br><br><strong><i class="material-icons">location_on</i></strong>${show["venue"]["name"]}</h5>
+                      <br>
+                      <h6 align="center"><a target=_blank href=${show["venue"]["website"]}>Find Tickets<br><img height=80px src='images/music.png'></a><h6>
+                      <br>
+                      <p align="center"><strong>Phone #: </strong>${show["venue"]["phone"]}
+                      <br><br><strong>Address: </strong><br>${show["venue"]["street"]}<br> ${show["venue"]["city"]}, ${show["venue"]["state_code"]} ${show["venue"]["zip"]}</p>
+                      <p align="center"><strong>Capacity: </strong>${show["venue"]["capacity"].toLocaleString()} people</p>
+                      <p align="center"><img src="http://${show["venue"]["songkick_img"]}"></p>
+                      <p align="center"></strong>${show["venue"]["description"]}</p>
+                      <br>
                     </div>
                     <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>`
