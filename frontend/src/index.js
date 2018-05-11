@@ -78,9 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
           L.popup().setLatLng([show["venue"]["lat"], show["venue"]["long"]]).setContent(`<center><b>${show["artist"]["name"]}</b><br>${show["venue"]["name"]}<br>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</center>`).openOn(map);
           map.setView([show["venue"]["lat"], show["venue"]["long"]], 13);
           let modalContent = document.querySelector('.modal-content')
-          modalContent.innerHTML = `<h4>${show["artist"]["name"]}</h4>
-                      <p>${show["venue"]["name"]}</p>
-                      <p>Description: ${show["venue"]["description"]}</p>
+          modalContent.innerHTML = `<h4 class="blue-grey-text text-darken-2" align="center"><strong>${show["artist"]["name"]}</strong></h4>
+                      <p align="center" class="flow-text"><img src=${show["artist"]["songkick_img"]}></p>
+                      <h5 align="center"><strong><i class="material-icons">event</i></strong>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}
+                      &nbsp;&nbsp;&nbsp;&nbsp;<strong><i class="material-icons">access_time</i></strong>${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM
+                      <br><br><strong><i class="material-icons">location_on</i></strong>${show["venue"]["name"]}</h5>
+                      <br>
+                      <h6 align="center"><a target=_blank href=${show["venue"]["website"]}>Find Tickets<br><img height=80px src='images/music.png'></a><h6>
+                      <br>
+                      <p align="center"><strong>Phone #: </strong>${show["venue"]["phone"]}
+                      <br><br><strong>Address: </strong><br>${show["venue"]["street"]}<br> ${show["venue"]["city"]}, ${show["venue"]["state_code"]} ${show["venue"]["zip"]}</p>
+                      <p align="center"><strong>Capacity: </strong>${show["venue"]["capacity"].toLocaleString()} people</p>
+                      <p align="center"><img src=${show["venue"]["songkick_img"]}></p>
+                      <p align="center"></strong>${show["venue"]["description"]}</p>
+                      <br>
                     </div>
                     <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>`
