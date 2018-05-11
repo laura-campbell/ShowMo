@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 20180507180012) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.integer "songkick_id"
-    t.string "songkick_url"
+    t.text "songkick_url"
+    t.text "songkick_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180507180012) do
     t.bigint "user_id"
     t.bigint "show_id"
     t.float "rating"
+    t.boolean "liked"
     t.boolean "checkin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(version: 20180507180012) do
   create_table "venues", force: :cascade do |t|
     t.integer "songkick_id"
     t.string "name"
-    t.string "songkick_url"
+    t.text "songkick_url"
     t.string "phone"
     t.string "street"
     t.string "city"
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180507180012) do
     t.integer "songkick_metro"
     t.decimal "lat"
     t.decimal "long"
+    t.text "songkick_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

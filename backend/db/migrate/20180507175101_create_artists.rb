@@ -3,7 +3,8 @@ class CreateArtists < ActiveRecord::Migration[5.1]
     create_table :artists do |t|
       t.string :name
       t.integer :songkick_id
-      t.string :songkick_url
+      t.text :songkick_url
+      t.text :songkick_img
       t.timestamps
     end
   end

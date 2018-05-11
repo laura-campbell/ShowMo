@@ -25,6 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let showLi = document.createElement('li')
         showLi.setAttribute("class", "collection-item avatar")
         showLi.innerHTML =
+
+//         `<div class="collapsible-header"><b>
+//         <img src="${show["artist"]["songkick_img"]}" height="30" width="30" alt="" class="circle">
+//         <h6>${show["artist"]["name"]}</b>&nbspat&nbsp<b>${show["venue"]["name"]}</b></h6><img src="http://${show["venue"]["songkick_img"]}" height="30" width="30" alt="" class="circle"></div>`
+//         showLi.innerHTML += `
+//         <div class="collapsible-body">
+//         <div class="row">
+//         <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><p><br><img src="images/sportlights.png" height=65px></p><b>Venue:</b><p><a target="_blank" href= "${show["venue"]["songkick_url"]}">${show["venue"]["name"]}</a></p></div>
+//         <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/microphone.png" height=65px></p><b>Artist:</b><p><a target="_blank" href= "${show["artist"]["songkick_url"]}">${show["artist"]["name"]}</a></p></div>
+//         <div style="height:300px" class="col s4 card-panel grey lighten-5 z-depth-2 center"><br><img src="images/music-festival-poster.png" height=65px></p><b>Date: </b>${show["date"].split('-')[1]}-${show["date"].split('-')[2]}-${show["date"].split('-')[0]}<br><b>Time: </b> ${show["time"].split(':')[0]-12}:${show["time"].split(':')[1]} PM <br><b>Setlist:</b><p>Insert Setlist Here</p></div>
+//         </div>`
+
           `<img src="images/drum-set.png" alt="" class="circle">
           <span class="title">${show["artist"]["name"]}</span>
           <p>${show["venue"]["name"]} <br>

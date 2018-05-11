@@ -3,7 +3,7 @@ class CreateVenues < ActiveRecord::Migration[5.1]
     create_table :venues do |t|
       t.integer :songkick_id
       t.string :name
-      t.string :songkick_url
+      t.text :songkick_url
       t.string :phone
       t.string :street
       t.string :city
@@ -16,6 +16,7 @@ class CreateVenues < ActiveRecord::Migration[5.1]
       t.integer :songkick_metro
       t.decimal :lat
       t.decimal :long
+      t.text :songkick_img
 
       t.timestamps
     end
