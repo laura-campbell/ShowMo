@@ -4,6 +4,7 @@ class CreateAttends < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.references :show, foreign_key: true
       t.float :rating
+      t.boolean :liked
       t.boolean :checkin
 
       t.timestamps
