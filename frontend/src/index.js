@@ -41,9 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${show.artist.songkick_img}" alt="" class="circle" style="top:19px;">
           <div style="position: relative; top:8px; ">
           <span class="title" style="font-size:18px; line-height:18px;"><strong>${show["artist"]["name"]}</strong></span><br>
-          <span>at ${show["venue"]["name"]} on ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</span>
+          <span>${show["venue"]["name"]} &middot; ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</span>
           </div>
-          <button id="modal-button" data-target="modal1" class="btn modal-trigger right something" style="position:relative; bottom:30px;">Details</button>`
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          <button id="modal-button" data-target="modal1" class="btn modal-trigger right something" style="position:relative; bottom:30px; right:40px;">Details</button>`
 
         // let modalButton = document.getElementById('modal-button')
         //
