@@ -30,27 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${show["venue"]["name"]} <br>
              ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}
           </p>
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Info</a>`
+          <button id="modal-button" data-target="modal1" class="btn modal-trigger">Event Details</button>`
 
+        // let modalButton = document.getElementById('modal-button')
+        //
+        // modalButton.addEventListener('click', function () {
+
+          console.log('help')
+
+        // let modalContent = document.getElementById('modal1')
+        // modalContent.innerHTML =
+
+      // })
 
 // NEED TO PUT THIS OUTSIDE THE LOOP OR ANYTHING
 
-        // $(document).ready(function(){
-        //   $('.modal').modal();
-        //   });
-        //
-        //   let modalPop = document.querySelector('.modal')
-        //   let modalInfo = document.querySelector('.modal-content')
-        //   modalInfo.setAttribute("id", "modal1")
-        //   modalInfo.innerHTML =
-        //   `<h4>Modal Header</h4>
-        //       <p>${show["artist"]["name"]}</p>
-        //       <p>${show["venue"]["name"]}</p>
-        //       <p>Description: ${show["venue"]["description"]}</p>
-        //     </div>
-        //     <div class="modal-footer">
-        //       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>`
-        //   modalPop.append(modalInfo)
+
 
         // `<div class="collapsible-header"><b>
         // <i class="material-icons">music_note</i>
@@ -68,9 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
         showLi.addEventListener('click', function(e) {
           L.popup().setLatLng([show["venue"]["lat"], show["venue"]["long"]]).setContent(`<center><b>${show["artist"]["name"]}</b><br>${show["venue"]["name"]}<br>${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</center>`).openOn(map);
           map.setView([show["venue"]["lat"], show["venue"]["long"]], 13);
+          let modalContent = document.querySelector('.modal-content')
+          modalContent.innerHTML = `<h4>${show["artist"]["name"]}</h4>
+                      <p>${show["venue"]["name"]}</p>
+                      <p>Description: ${show["venue"]["description"]}</p>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>`
         });
         locations.push([show["artist"]["name"], show["venue"]["name"], show["venue"]["lat"], show["venue"]["long"], show["date"].split('-')[1] + `/` + show["date"].split('-')[2] + `/` + show["date"].split('-')[0]])
+
       })
+
 
       let setCenter = [40.748, -73.985]
 
@@ -89,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })})
 
       }) // end of fetch
-
 
 
   })  // end of dom content loaded
