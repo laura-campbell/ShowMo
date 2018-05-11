@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="title" style="font-size:18px; line-height:18px;"><strong>${show["artist"]["name"]}</strong></span><br>
           <span>${show["venue"]["name"]} &middot; ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</span>
           </div>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          <a href="#!" class="secondary-content something" style="position: relative; top:-23px;"><i class="material-icons" data-phone="${show.id}">phone_iphone</i></a>
           <button id="modal-button" data-target="modal1" class="btn modal-trigger right something" style="position:relative; bottom:30px; right:40px;">Details</button>`
 
         // let modalButton = document.getElementById('modal-button')
