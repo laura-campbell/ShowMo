@@ -10,7 +10,8 @@ This was a pair-programming student project, created in my third module for Flat
 ## Tech/framework used
 
 <b>Built with</b>
-- JavaScript
+- JavaScript Front End
+- Ruby on Rails Back End
 - [Leaflet](https://leafletjs.com/)
 - [Materialize CSS](https://materializecss.com/)
 
