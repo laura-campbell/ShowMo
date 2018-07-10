@@ -2,7 +2,7 @@
 A map-centric concert finder by location for live music enthusiasts. Uses SongKick API to allow users to see concerts happening in their area in the next 7 days.
 
 ## Motivation
-This is a student project, created in my third module for Flatiron School's immersive web development program.
+This was a pair-programming student project, created in my third module for Flatiron School's immersive web development program.
  
 ## Screenshots
 ![]()
@@ -15,9 +15,24 @@ This is a student project, created in my third module for Flatiron School's imme
 - [Materialize CSS](https://materializecss.com/)
 
 ## Installation
-```$ yarn install```
 
-```$ yarn start```
+1. Start the Backend: 
+
+   ```$ cd backend```
+
+   ```$ bundle install```
+
+   ```$ rails db:create```
+
+   ```$ rails db:migrate```
+
+   ```$ rails s```
+
+2. Start the Frontend:
+
+   ```$ cd frontend```
+
+   ```$ open index.html```
 
 ## API Reference
 
