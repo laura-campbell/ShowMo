@@ -21,6 +21,8 @@ This was a pair-programming student project, created in my third module for Flat
    ```$ bundle install```
 
    ```$ rails db:migrate```
+   
+   ```$ rails db:seed```
 
    ```$ rails s```
 
