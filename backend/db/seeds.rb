@@ -13,6 +13,7 @@ d = Date.today
 dplus7 = (d+7).to_s
 d = d.to_s
 url = "http://api.songkick.com/api/3.0/metro_areas/7644/calendar.json?apikey=#{key}&min_date=#{d}&max_date=#{dplus7}"
+url2 = "http://api.songkick.com/api/3.0/metro_areas/17835/calendar.json?apikey=#{key}&min_date=#{d}&max_date=#{dplus7}"
 
 # method for getting new data
 def getData (url)
@@ -33,9 +34,10 @@ page = r["resultsPage"]["page"]
 all_venues = []
 
 while page <= pages
-  # go through each even object
+  # go through each event object
+  if r["resultsPage"]["status"] != "error"
   r["resultsPage"]["results"]["event"].each do |event|
-    if event["venue"]["id"] && event["performance"][0]["artist"]["id"]
+    if event && event["venue"]["id"] && event["performance"].length > 0 && event["performance"][0]["artist"]["id"]
       #create the artist
       event_artists = []
       event["performance"].each do |set|
@@ -78,7 +80,8 @@ while page <= pages
     else
       puts "SKIPPING AN EVENT"
       puts ""
-    end #out check if the artist and venue id exist
+    end #check if the artist and venue id exist
+  end
   end #stop going through the events
 
   #logging
@@ -104,6 +107,7 @@ Venue.all.each do |venue|
   puts "Starting venue #{venue.id} of #{venues_count}"
     url = "http://api.songkick.com/api/3.0/venues/#{venue.songkick_id}.json?apikey=#{key}"
     r = getData(url)
+    if r["resultsPage"]["status"] != "error"
     data = r["resultsPage"]["results"]["venue"]
     # venue = Venue.find(VenueObj.id)
     venue.phone = data["phone"]
@@ -117,6 +121,7 @@ Venue.all.each do |venue|
     venue.capacity = data["capacity"]
     venue.save
     puts "Updated the venue #{venue.name}, known for #{venue.description} and available at #{venue.website}."
+  end
 end
 
 # #USERS
@@ -153,17 +158,6 @@ end
 # 50.times do
 #   setlist = Setlist.create(artist: Artist.all.sample, content: Faker::Lorem.paragraph(2))
 # end
-
-Venue.all.each do |venue|
-  if venue.songkick_url
-    doc = Nokogiri::HTML(open(venue.songkick_url, :allow_redirections => :safe))
-    image = doc.css('img.profile-picture')[0]['src'].split('//')[1]
-    venue.songkick_img = "http://#{image}"
-    venue.save
-    puts "Saved #{venue.name} with a new picture URL of #{venue.songkick_img}."
-    puts ""
-  end
-end
 
 Artist.all.each do |artist|
   url = artist.songkick_id

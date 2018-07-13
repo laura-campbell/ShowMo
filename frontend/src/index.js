@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // })
 
   let showsList = document.getElementById('shows')
-  fetch('http://localhost:3000/api/v1/shows')
+  fetch('http://localhost:3001/api/v1/shows')
     .then(response => response.json())
     .then(shows => {
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="title" style="font-size:18px; line-height:18px;"><strong>${show["artist"]["name"]}</strong></span><br>
           <span>${show["venue"]["name"]} &middot; ${show["date"].split('-')[1]}/${show["date"].split('-')[2]}</span>
           </div>
-          <a href="#!" class="secondary-content something" style="position: relative; top:-23px;"><i class="material-icons" data-phone="${show.id}">phone_iphone</i></a>
+          
           <button id="modal-button" data-target="modal1" class="btn modal-trigger right something" style="position:relative; bottom:30px; right:40px;">Details</button>`
 
         // let modalButton = document.getElementById('modal-button')
@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
                       <p align="center"><strong>Phone #: </strong>${show["venue"]["phone"]}
                       <br><br><strong>Address: </strong><br>${show["venue"]["street"]}<br> ${show["venue"]["city"]}, ${show["venue"]["state_code"]} ${show["venue"]["zip"]}</p>
                       <p align="center"><strong>Capacity: </strong>${show["venue"]["capacity"].toLocaleString()} people</p>
-                      <p align="center"><img src="http://${show["venue"]["songkick_img"]}"></p>
                       <p align="center"></strong>${show["venue"]["description"]}</p>
                       <br>
                     </div>
