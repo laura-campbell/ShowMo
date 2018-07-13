@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // })
 
   let showsList = document.getElementById('shows')
-  fetch('http://localhost:3001/api/v1/shows')
+  fetch('http://localhost:3000/api/v1/shows')
     .then(response => response.json())
     .then(shows => {
 
