@@ -1,5 +1,5 @@
-## Bamo
-A map-centric concert finder by location for live music enthusiasts. Uses SongKick API to allow users to see concerts happening in their area in the next 7 days.
+## ShowMo
+A map-centric NYC concert finder for live music enthusiasts. Uses SongKick API to allow users to see concerts happening in their area in the next 7 days.
 
 ## Motivation
 This was a pair-programming student project, created in my third module for Flatiron School's immersive web development program.
