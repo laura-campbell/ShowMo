@@ -7,9 +7,13 @@ This was a pair-programming student project, created in my third module for Flat
 ## Screenshots
 ![](frontend/images/1.png)
 
-![]()
+![](frontend/images/2.png)
 
-![]()
+![](frontend/images/3.png)
+
+![](frontend/images/4.png)
+
+![](frontend/images/5.png)
 
 
 ## Tech/framework used
