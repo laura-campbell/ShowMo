@@ -4,6 +4,14 @@ A map-centric NYC concert finder for live music enthusiasts. Uses SongKick API t
 ## Motivation
 This was a pair-programming student project, created in my third module for Flatiron School's immersive web development program.
 
+## Screenshots
+![]()
+
+![]()
+
+![]()
+
+
 ## Tech/framework used
 
 <b>Built with</b>
